@@ -1,8 +1,10 @@
 #BlueJ class context
 comment0.params=
 comment0.target=Workers()
-comment1.params=workerName\ workerHealth\ workerStrength
-comment1.target=Workers(java.lang.String,\ int,\ int)
-comment2.params=
-comment2.target=java.lang.String\ getName()
-numComments=3
+comment1.params=workerName
+comment1.target=Workers(java.lang.String)
+comment2.params=workerName\ workerHealth\ workerStrength
+comment2.target=Workers(java.lang.String,\ int,\ int)
+comment3.params=
+comment3.target=java.lang.String\ getName()
+numComments=4

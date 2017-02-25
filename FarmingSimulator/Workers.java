@@ -1,4 +1,4 @@
-public class Workers extends FarmingSimulatorRunner
+public class Workers //extends FarmingSimulatorRunner
 {
     private String name;
     private int curhp, maxhp;
@@ -15,6 +15,18 @@ public class Workers extends FarmingSimulatorRunner
         curexp = 0;
         maxexp = 10;
         revoltChance = 0.0;
+        totalnum++;
+    }
+    
+    public Workers(String workerName)
+    {
+        name = workerName;
+        curhp = maxhp = 100;
+        strength = (int)(Math.ceil(Math.random()*10));
+        curexp = 0;
+        maxexp = 10;
+        revoltChance = 0.0;
+        revoltChance += .01;
         totalnum++;
     }
 

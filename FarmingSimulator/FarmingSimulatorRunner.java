@@ -9,17 +9,19 @@ import java.util.ArrayList;
 
 public class FarmingSimulatorRunner
 {
+    static boolean isGameRunning = true;
     
-    protected String playername;
-    private String name;
+    static protected String playername;
+    static protected int money = 0;
+    static private String name;
     
-    Scanner scanner = new Scanner(System.in);
-    ArrayList<Workers> workers;
-    House house;
-    Fields field;
-    Store store;
+    static Scanner scanner = new Scanner(System.in);
+    static ArrayList<Workers> workers;
+    static House house;
+    static Fields field;
+    static Store store;
     
-    public void main(String args[])
+    public static void main(String args[])
     {
         
         
@@ -37,12 +39,17 @@ public class FarmingSimulatorRunner
         
         
         System.out.println("What do you want the name of your first worker to be...?");
+        name = scanner.next();
         
+        addWorker(name, 100, 5);
         
-        addWorker(name = scanner.nextLine(), 100, 5);
+        while(isGameRunning)
+        {
+            teleport();
+        }
     }
     
-    public void teleport()
+    public static void teleport()
     {
         int option = 0;
         System.out.println("Where would you like to go?  House(1)  Fields(2)  Store(3)");
@@ -56,12 +63,12 @@ public class FarmingSimulatorRunner
         }
     }
     
-    public void addWorker(String workerName, int health_param, int strength_param)
+    public static void addWorker(String workerName, int health_param, int strength_param)
     {
         workers.add(new Workers(workerName,health_param,strength_param));
     }
     
-    public void removeWorker(String name)
+    public static void removeWorker(String name)
     {
         for(int i=0;i<workers.size(); i++)
          {

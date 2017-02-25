@@ -11,31 +11,39 @@ public class FarmingSimulatorRunner
 {
     
     protected String playername;
-    private int option;
     private String name;
+    
     Scanner scanner = new Scanner(System.in);
-    House house = new House();
-    Fields field = new Fields();
-    Store store = new Store();
-    ArrayList<Workers> workers = new ArrayList<Workers>();
+    House house;
+    Fields field;
+    Store store;
     
     public void main(String args[])
     {
         
         
         System.out.println("Welcome to Farming Simulator. You just inherited 5 acres of land. What is your name?");
-        String playername = scanner.next();
+        playername = scanner.next();
         System.out.println("Hello, " + playername + ". Press space to begin...");
-        scanner.next();
+        
+        
+        
+        
+        ArrayList<Workers> workers = new ArrayList<Workers>();
+        house = new House(workers);
+        field = new Fields();
+        store = new Store();
+        
         
         System.out.println("What do you want the name of your first worker to be...?");
-        name = scanner.nextLine();
         
-        addWorker(name, 100, 5);
+        
+        addWorker(name = scanner.nextLine(), 100, 5);
     }
     
     public void teleport()
     {
+        int option = 0;
         System.out.println("Where would you like to go?  House(1)  Fields(2)  Store(3)");
         option = scanner.nextInt();
         switch(option)

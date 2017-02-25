@@ -14,6 +14,7 @@ public class FarmingSimulatorRunner
     private String name;
     
     Scanner scanner = new Scanner(System.in);
+    ArrayList<Workers> workers;
     House house;
     Fields field;
     Store store;
@@ -29,10 +30,10 @@ public class FarmingSimulatorRunner
         
         
         
-        ArrayList<Workers> workers = new ArrayList<Workers>();
+        workers = new ArrayList<Workers>();
         house = new House(workers);
-        field = new Fields();
-        store = new Store();
+        field = new Fields(workers);
+        store = new Store(workers);
         
         
         System.out.println("What do you want the name of your first worker to be...?");
@@ -57,14 +58,14 @@ public class FarmingSimulatorRunner
     
     public void addWorker(String workerName, int health_param, int strength_param)
     {
-        workers.add(workerName,health_param,strength_param);
+        workers.add(new Workers(workerName,health_param,strength_param));
     }
     
     public void removeWorker(String name)
     {
         for(int i=0;i<workers.size(); i++)
          {
-            if(worker.getName().equals(name))
+            if(workers.get(i).getName().equals(name))
                 workers.remove(i);
             }
     }

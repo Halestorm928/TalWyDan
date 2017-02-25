@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.params=w
+comment0.target=Store(java.util.ArrayList)
+comment1.params=w
+comment1.target=void\ setWorkers(java.util.ArrayList)
+comment2.params=
+comment2.target=java.util.ArrayList\ getWorkers()
+comment3.params=
+comment3.target=void\ optionSelect()
+numComments=4

@@ -88,9 +88,12 @@ public class FarmingSimulatorRunner
     }
     public static void printWorkers(ArrayList<Workers> w)
     {
-        for(Workers d : w)
+        if(w.size() != 0)
         {
-            System.out.println(d.name + " " + d.getOcc());
+            for(Workers d : w)
+            {
+                System.out.println(d.name + " " + d.getOcc());
+            }
         }
     }
 }

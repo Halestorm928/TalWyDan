@@ -20,6 +20,7 @@ public class FarmingSimulatorRunner
     static House house;
     static Fields field;
     static Store store;
+    static ClearScreen clearscreen;
     
     public static void main(String args[])
     {
@@ -27,8 +28,10 @@ public class FarmingSimulatorRunner
         
         System.out.println("Welcome to Farming Simulator. You just inherited 5 acres of land. What is your name?");
         playername = scanner.next();
-        System.out.println("Hello, " + playername + ". Press space to begin...");
-        
+        System.out.println("Hello, " + playername + ". Press enter to begin...");
+        scanner.nextLine();
+        scanner.nextLine();
+        clearscreen.ClearScreen();
         
         
         

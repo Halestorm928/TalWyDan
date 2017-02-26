@@ -25,7 +25,14 @@ public class House extends FarmingSimulatorRunner
     
     public void optionSelect()
     {
-        System.out.println("What would you like to do? Add Workers?(1)  Remove Workers(2)");
+        System.out.println("What would you like to do? Add Workers?(1)  Remove Workers(2) PrintWorkers (3)");
         option = scanner.nextInt();
+        switch(option)
+        {
+            case 1: 
+            case 2:
+            case 3: super.printWorkers();
+            default: optionSelect();
+        }
     }
 }

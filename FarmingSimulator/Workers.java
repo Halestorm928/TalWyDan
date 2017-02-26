@@ -7,6 +7,13 @@ public class Workers //extends FarmingSimulatorRunner
     static private double revoltChance;
     static public int totalnum = 0;
     
+    public enum Occupation
+    {
+        NOTWORKING, HOUSEWORKER, FIELDWORKER
+    }
+    
+    Occupation occupation;
+    
     public Workers()
     {
         name = "Talbot";
@@ -16,6 +23,7 @@ public class Workers //extends FarmingSimulatorRunner
         maxexp = 10;
         revoltChance = 0.0;
         totalnum++;
+        occupation = Occupation.NOTWORKING;
     }
     
     public Workers(String workerName)
@@ -28,9 +36,10 @@ public class Workers //extends FarmingSimulatorRunner
         revoltChance = 0.0;
         revoltChance += .01;
         totalnum++;
+        occupation = Occupation.NOTWORKING;
     }
 
-    public Workers(String workerName, int workerHealth, int workerStrength )
+    public Workers(String workerName, int workerHealth, int workerStrength, int workerOcc )
     {
         name = workerName;
         curhp = maxhp = workerHealth;
@@ -40,6 +49,13 @@ public class Workers //extends FarmingSimulatorRunner
         revoltChance = 0.0;
         revoltChance += .01;
         totalnum++;
+        switch(workerOcc)
+        {
+            case(0): occupation = Occupation.NOTWORKING;      break;
+            case(1): occupation = Occupation.HOUSEWORKER;     break;
+            case(2): occupation = Occupation.FIELDWORKER;     break;
+            default: occupation = Occupation.NOTWORKING; break;
+        }        
     }
     
     public String getName()

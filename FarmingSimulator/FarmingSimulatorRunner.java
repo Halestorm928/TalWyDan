@@ -44,7 +44,7 @@ public class FarmingSimulatorRunner
         System.out.println("What do you want the name of your first worker to be...?");
         name = scanner.next();
         
-        addWorker(name, 100, 5);
+        addWorker(name, 100, 5, 2);
         
         while(isGameRunning)
         {
@@ -66,9 +66,9 @@ public class FarmingSimulatorRunner
         }
     }
     
-    public static void addWorker(String workerName, int health_param, int strength_param)
+    public static void addWorker(String workerName, int health_param, int strength_param, int enumeration)
     {
-        workers.add(new Workers(workerName,health_param,strength_param));
+        workers.add(new Workers(workerName,health_param,strength_param, enumeration));
     }
     
     public static void removeWorker(String name)

@@ -11,13 +11,6 @@ public class Fields extends FarmingSimulatorRunner
         numworkers = 0;
         cropamount = 0;
         workers = w;
-        for(int i = 0; i < workers.size(); i++)
-        {
-            if(workers.get(i).getOcc() == Occupation.FIELDWORKER)
-            {
-                fworkers.add(workers.get(i));
-            }
-        }
     }
     public void setWorkers(ArrayList<Workers> w)
     {

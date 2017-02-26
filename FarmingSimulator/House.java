@@ -15,13 +15,6 @@ public class House extends FarmingSimulatorRunner
         numworkers = 0;
         happiness = 50.0;
         workers = w;
-        for(int i=0; i<workers.size(); i++)
-        {
-            if(workers.get(i).getOcc() == Occupation.HOUSEWORKER)
-            {
-                hworkers.add(workers.get(i));                
-            }
-        }
     }
     
     public void setWorkers(ArrayList<Workers> w)

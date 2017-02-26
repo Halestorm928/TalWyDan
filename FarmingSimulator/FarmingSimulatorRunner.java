@@ -86,6 +86,13 @@ public class FarmingSimulatorRunner
             System.out.println(d.name + " " + d.getOcc());
         }
     }
+    public static void printWorkers(ArrayList<Workers> w)
+    {
+        for(Workers d : w)
+        {
+            System.out.println(d.name + " " + d.getOcc());
+        }
+    }
 }
 
 // http://collabedit.com/aay73 -- workers class

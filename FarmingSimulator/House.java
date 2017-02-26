@@ -5,7 +5,7 @@ public class House extends FarmingSimulatorRunner
     private int numworkers;
     private double happiness;
     ArrayList<Workers> workers;
-    public ArrayList<Workers> hworkers;
+    ArrayList<Workers> hworkers = new ArrayList<Workers>();
     private int option;
     private Scanner scanner = new Scanner(System.in);
     

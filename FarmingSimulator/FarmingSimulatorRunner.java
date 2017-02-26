@@ -44,7 +44,7 @@ public class FarmingSimulatorRunner
         System.out.println("What do you want the name of your first worker to be...?");
         name = scanner.next();
         
-        addWorker(name, 100, 5, 2);
+        addWorker(name, 100, 5, 1);
         
         while(isGameRunning)
         {
@@ -89,12 +89,10 @@ public class FarmingSimulatorRunner
     public static void printWorkers(ArrayList<Workers> w)
     {
         if(w.size() != 0)
-        {
             for(Workers d : w)
             {
                 System.out.println(d.name + " " + d.getOcc());
             }
-        }
     }
 }
 

@@ -46,10 +46,16 @@ public class FarmingSimulatorRunner
         field = new Fields(workers);
         store = new Store(workers);
         
+        /*
+        workers.add(new Workers(name, 100, 5, 1));
+        house.setWorkers(workers);  
         
+        workers.add(new Workers(name + "t", 100, 5, 1));
+        house.setWorkers(workers);  
+        */
         addWorker(name, 100, 5, 1);
-        addWorker(name, 100, 5, 1);
-        addWorker(name, 100, 5, 1);
+        addWorker(name + "t", 100, 5, 1);
+        addWorker(name + "h", 100, 5, 1);
         
         
         
@@ -76,8 +82,7 @@ public class FarmingSimulatorRunner
     public static void addWorker(String workerName, int health_param, int strength_param, int occupation)
     {
         workers.add(new Workers(workerName,health_param,strength_param, occupation));
-        house.setWorkers(workers);
-        field.setWorkers(workers);
+        house.setWorkers(workers);  
     }
     
     public static void removeWorker(String name)
@@ -90,20 +95,21 @@ public class FarmingSimulatorRunner
     }
     public static String printWorkers()
     {
+        String all = "";
         for(Workers d : workers)
         {
-            return d.name + " " + d.getOcc();
+            all += "\n" + d.name + " (" + d.getOcc() + ")";
         }
-        return "hi";
+        return all;
     }
     public static String printWorkers(ArrayList<Workers> w)
     {
-        if(w.size() != 0)
-            for(Workers d : w)
-            {
-                return "\n" + d.name + " (" + d.getOcc() + ")";
-            }
-            return "hi";
+        String all = "";
+        for(Workers d : w)
+        {
+            all += "\n" + d.name + " (" + d.getOcc() + ")";
+        }
+        return all;
     }
 }
 

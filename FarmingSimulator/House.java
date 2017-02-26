@@ -5,30 +5,50 @@ public class House extends FarmingSimulatorRunner
     private int numworkers;
     private double happiness;
     ArrayList<Workers> workers;
-    ArrayList<Workers> hworkers = new ArrayList<Workers>();
+    ArrayList<Workers> hworkers;// = new ArrayList<Workers>();
     private int option;
     Scanner scanner = new Scanner(System.in);
-    private int count;
+    //private int count;
     
     public House(ArrayList<Workers> w)
     {
         numworkers = 0;
         happiness = 50.0;
         workers = w;
+        hworkers = new ArrayList<Workers>(workers);
     }
     
     public void setWorkers(ArrayList<Workers> w)
     {
-        count = 0;
+        //count = 0;
         workers = w;
+        //count = workers.size();//notused
+        
+        hworkers = new ArrayList<Workers>(workers);
+        
+        for(int i = 0; i < hworkers.size(); i++)
+        {
+            if(workers.get(i).getOcc() != Occupation.HOUSEWORKER)
+            {
+                hworkers.remove(i);
+                i--;
+            }
+        }
+        
+        
+        /*
         for(int i=0; i<workers.size(); i++)
         {
             if(workers.get(i).getOcc() == Occupation.HOUSEWORKER)
             {
-                hworkers.add(workers.get(i));     
-                count++;
+                hworkers.add(workers.get(i));    
+                System.out.println(""+i);
             }
         }
+        */
+        
+        //System.out.println(workers);
+        //System.out.println(hworkers);
     }
     public ArrayList<Workers> getWorkers()
     {
@@ -45,18 +65,18 @@ public class House extends FarmingSimulatorRunner
             case 2:
                 System.out.println("Here are your workers..." + "\n" + super.printWorkers(hworkers)+ "\n\nWhich would you like to remove from the house?");
                 String nameoption = scanner.next();
-                for(int i=0; i<count; i++)
+                for(int i=0; i<hworkers.size(); i++)
                 {
                     if(hworkers.get(i).name.equals(nameoption))
-                        {hworkers.remove(i); System.out.print("Worker Removed from House\n");}
+                       {hworkers.remove(i); System.out.print("Worker Removed from House\n");}
                     else 
                     {
                         System.out.println("Worker Not Found");
                     }
                 }
                 break;
-            case 3: super.printWorkers(); break;
-            case 4: super.printWorkers(hworkers); break;
+            case 3: System.out.println(super.printWorkers()); break;
+            case 4: System.out.println(super.printWorkers(hworkers)); break;
             default: optionSelect(); break;
         }
     }

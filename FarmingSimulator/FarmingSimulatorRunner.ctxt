@@ -7,4 +7,6 @@ comment2.params=workerName\ health_param\ strength_param\ occupation
 comment2.target=void\ addWorker(java.lang.String,\ int,\ int,\ int)
 comment3.params=name
 comment3.target=void\ removeWorker(java.lang.String)
-numComments=4
+comment4.params=
+comment4.target=void\ printWorkers()
+numComments=5

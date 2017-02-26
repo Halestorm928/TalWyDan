@@ -79,11 +79,11 @@ public class FarmingSimulatorRunner
                 workers.remove(i);
             }
     }
-    public static String printWorkers()
+    public static void printWorkers()
     {
         for(Workers d : workers)
         {
-            System.out.println(d.name + " " + occupation);
+            System.out.println(d.name + " " + d.getOcc());
         }
     }
 }

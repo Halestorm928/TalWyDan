@@ -1,10 +1,10 @@
 public class Workers //extends FarmingSimulatorRunner
 {
-    private String name;
-    private int curhp, maxhp;
-    private int strength;
-    private int curexp, maxexp, level;
-    static private double revoltChance;
+    public String name;
+    int curhp, maxhp;
+    int strength;
+    int curexp, maxexp, level;
+    static double revoltChance;
     static public int totalnum = 0;
     
     /*

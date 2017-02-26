@@ -4,7 +4,7 @@ public class Fields extends FarmingSimulatorRunner
     private int numworkers;
     private int cropamount;
     ArrayList<Workers> workers;
-    ArrayList<Workers> fworkers;
+    ArrayList<Workers> fworkers = new ArrayList<Workers>();
     
     public Fields(ArrayList<Workers> w)
     {

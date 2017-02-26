@@ -69,6 +69,8 @@ public class FarmingSimulatorRunner
     public static void addWorker(String workerName, int health_param, int strength_param, int occupation)
     {
         workers.add(new Workers(workerName,health_param,strength_param, occupation));
+        house.setWorkers(workers);
+        field.setWorkers(workers);
     }
     
     public static void removeWorker(String name)

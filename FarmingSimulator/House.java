@@ -19,7 +19,7 @@ public class House extends FarmingSimulatorRunner
         {
             if(workers.get(i).getOcc() == Occupation.HOUSEWORKER)
             {
-                hworkers.add(workers.get(i));
+                hworkers.add(workers.get(i));                
             }
         }
     }
@@ -27,6 +27,13 @@ public class House extends FarmingSimulatorRunner
     public void setWorkers(ArrayList<Workers> w)
     {
         workers = w;
+        for(int i=0; i<workers.size(); i++)
+        {
+            if(workers.get(i).getOcc() == Occupation.HOUSEWORKER)
+            {
+                hworkers.add(workers.get(i));                
+            }
+        }
     }
     public ArrayList<Workers> getWorkers()
     {

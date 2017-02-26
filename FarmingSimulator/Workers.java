@@ -7,12 +7,14 @@ public class Workers //extends FarmingSimulatorRunner
     static private double revoltChance;
     static public int totalnum = 0;
     
+    /*
     public enum Occupation
     {
         NOTWORKING, HOUSEWORKER, FIELDWORKER
     }
+    */
     
-    Occupation occupation;
+    public Occupation occupation;
     
     public Workers()
     {
@@ -56,6 +58,11 @@ public class Workers //extends FarmingSimulatorRunner
             case(2): occupation = Occupation.FIELDWORKER;     break;
             default: occupation = Occupation.NOTWORKING; break;
         }        
+    }
+    
+    public Occupation getOcc()
+    {
+        return this.occupation;
     }
     
     public String getName()

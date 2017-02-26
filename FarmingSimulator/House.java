@@ -50,6 +50,7 @@ public class House extends FarmingSimulatorRunner
         //System.out.println(workers);
         //System.out.println(hworkers);
     }
+    
     public ArrayList<Workers> getWorkers()
     {
         return workers;
@@ -68,7 +69,11 @@ public class House extends FarmingSimulatorRunner
                 for(int i=0; i<hworkers.size(); i++)
                 {
                     if(hworkers.get(i).name.equals(nameoption))
-                       {hworkers.remove(i); System.out.print("Worker Removed from House\n");}
+                    {   hworkers.remove(i); System.out.print("Worker Removed from House\n");}
+                    else if(i == hworkers.size()-1)
+                    {
+                        System.out.println("Worker Name Not In List");
+                    }
                     else 
                     {
                         System.out.println("Worker Not Found");

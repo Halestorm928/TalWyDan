@@ -56,7 +56,7 @@ public class FarmingSimulatorRunner
         addWorker(name, 100, 5, 1);
         addWorker(name + "t", 100, 5, 1);
         addWorker(name + "h", 100, 5, 1);
-        
+        addWorker(name + "r", 100, 5, 0);
         
         
         while(isGameRunning)

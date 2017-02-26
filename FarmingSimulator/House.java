@@ -7,8 +7,8 @@ public class House extends FarmingSimulatorRunner
     ArrayList<Workers> workers;
     ArrayList<Workers> hworkers = new ArrayList<Workers>();
     private int option;
-    private Scanner scanner = new Scanner(System.in);
-    
+    Scanner scanner = new Scanner(System.in);
+    private int count;
     
     public House(ArrayList<Workers> w)
     {
@@ -19,12 +19,14 @@ public class House extends FarmingSimulatorRunner
     
     public void setWorkers(ArrayList<Workers> w)
     {
+        count = 0;
         workers = w;
         for(int i=0; i<workers.size(); i++)
         {
             if(workers.get(i).getOcc() == Occupation.HOUSEWORKER)
             {
-                hworkers.add(workers.get(i));                
+                hworkers.add(workers.get(i));     
+                count++;
             }
         }
     }
@@ -39,11 +41,23 @@ public class House extends FarmingSimulatorRunner
         option = scanner.nextInt();
         switch(option)
         {
-            case 1: 
+            case 1: break;
             case 2:
-            case 3: super.printWorkers();
-            case 4: super.printWorkers(hworkers);
-            default: optionSelect();
+                System.out.println("Here are your workers..." + "\n" + super.printWorkers(hworkers)+ "\n\nWhich would you like to remove from the house?");
+                String nameoption = scanner.next();
+                for(int i=0; i<count; i++)
+                {
+                    if(hworkers.get(i).name.equals(nameoption))
+                        {hworkers.remove(i); System.out.print("Worker Removed from House\n");}
+                    else 
+                    {
+                        System.out.println("Worker Not Found");
+                    }
+                }
+                break;
+            case 3: super.printWorkers(); break;
+            case 4: super.printWorkers(hworkers); break;
+            default: optionSelect(); break;
         }
     }
 }

@@ -64,7 +64,6 @@ public class Workers //extends FarmingSimulatorRunner
     {
         return this.occupation;
     }
-    
     public String getName()
     {
         return name;

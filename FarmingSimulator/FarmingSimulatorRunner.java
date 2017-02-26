@@ -35,16 +35,23 @@ public class FarmingSimulatorRunner
         
         
         
+        
+        System.out.println("What do you want the name of your first worker to be...?");
+        name = scanner.next();
+        
+        
+        
         workers = new ArrayList<Workers>();
         house = new House(workers);
         field = new Fields(workers);
         store = new Store(workers);
         
         
-        System.out.println("What do you want the name of your first worker to be...?");
-        name = scanner.next();
-        
         addWorker(name, 100, 5, 1);
+        addWorker(name, 100, 5, 1);
+        addWorker(name, 100, 5, 1);
+        
+        
         
         while(isGameRunning)
         {
@@ -81,20 +88,22 @@ public class FarmingSimulatorRunner
                 workers.remove(i);
             }
     }
-    public static void printWorkers()
+    public static String printWorkers()
     {
         for(Workers d : workers)
         {
-            System.out.println(d.name + " " + d.getOcc());
+            return d.name + " " + d.getOcc();
         }
+        return "hi";
     }
-    public static void printWorkers(ArrayList<Workers> w)
+    public static String printWorkers(ArrayList<Workers> w)
     {
         if(w.size() != 0)
             for(Workers d : w)
             {
-                System.out.println(d.name + " " + d.getOcc());
+                return "\n" + d.name + " (" + d.getOcc() + ")";
             }
+            return "hi";
     }
 }
 

@@ -46,18 +46,7 @@ public class FarmingSimulatorRunner
         field = new Fields(workers);
         store = new Store(workers);
         
-        /*
-        workers.add(new Workers(name, 100, 5, 1));
-        house.setWorkers(workers);  
-        
-        workers.add(new Workers(name + "t", 100, 5, 1));
-        house.setWorkers(workers);  
-        */
-        addWorker(name, 100, 5, 1);
-        addWorker(name + "t", 100, 5, 1);
-        addWorker(name + "h", 100, 5, 1);
-        addWorker(name + "r", 100, 5, 0);
-        
+        addWorker(name, 100, 5, 1);       
         
         while(isGameRunning)
         {

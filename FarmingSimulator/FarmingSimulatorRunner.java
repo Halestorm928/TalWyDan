@@ -82,7 +82,6 @@ public class FarmingSimulatorRunner
     public static void addWorker(String workerName, int health_param, int strength_param, int occupation)
     {
         workers.add(new Workers(workerName,health_param,strength_param, occupation));
-        house.setWorkers(workers);  
     }
     
     public static void removeWorker(String name)
@@ -102,16 +101,21 @@ public class FarmingSimulatorRunner
         }
         return all;
     }
-    public static String printWorkers(ArrayList<Workers> w)
+    public static String printWorkers(Occupation worker)
     {
         String all = "";
-        for(Workers d : w)
+        for(Workers d : workers)
         {
-            all += "\n" + d.name + " (" + d.getOcc() + ")";
-        }
+            if(d.getOcc() == worker)
+                all+= "\n"+d.name;
+          }
+          
         return all;
-    }
-}
+        }
+ }
+        
+    
+
 
 // http://collabedit.com/aay73 -- workers class
 // http://collabedit.com/48326 -- house class

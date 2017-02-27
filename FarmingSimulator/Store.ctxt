@@ -1,6 +1,6 @@
 #BlueJ class context
-comment0.params=w
-comment0.target=Store(java.util.ArrayList)
+comment0.params=
+comment0.target=Store()
 comment1.params=w
 comment1.target=void\ setWorkers(java.util.ArrayList)
 comment2.params=

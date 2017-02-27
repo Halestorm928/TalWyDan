@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 public class House extends FarmingSimulatorRunner
 {
-    ArrayList<Workers> workers;
+    //ArrayList<Workers> workers;
     ClearScreen clearscreen = new ClearScreen();
     Scanner scanner = new Scanner(System.in);
     
@@ -13,9 +13,8 @@ public class House extends FarmingSimulatorRunner
     
     private String response;
     
-    public House(ArrayList<Workers> w)
+    public House()
     {
-        workers = w;
     }
     
     public void setWorkers(ArrayList<Workers> w)
@@ -41,13 +40,13 @@ public class House extends FarmingSimulatorRunner
                 System.out.println("Here are all of your workers...." + "\n" + super.printWorkers() + "\n\n Which would you like to add to the house?");
                 response = scanner.next();
                 
-                for(int i=0; i<workers.size(); i++)
+                for(int i=0; i<super.workers.size(); i++)
                 {
-                    if(workers.get(i).occupation != Occupation.HOUSEWORKER)
-                        if(workers.get(i).name == response)
-                            {workers.get(i).occupation = Occupation.HOUSEWORKER;}
-                        else{}
-                    else{System.out.println("\nWorker is Already a house worker");}
+                        if(super.workers.get(i).name == response)
+                            {
+                                super.workers.get(i).setOcc(Occupation.HOUSEWORKER);
+                                System.out.println("\nOccupation Switched\n");
+                            }
                 }
             break;
             case 2:
@@ -56,9 +55,9 @@ public class House extends FarmingSimulatorRunner
                 String nameoption = scanner.next();
                 for(int i=0; i<workers.size(); i++)
                 {
-                    if(workers.get(i).name.equals(nameoption))
+                    if(super.workers.get(i).name.equals(nameoption))
                     {   
-                        workers.get(i).occupation = Occupation.NOTWORKING; 
+                        super.workers.get(i).occupation = Occupation.NOTWORKING; 
                         System.out.println("Worker Removed from House"); 
                         number++;
                         clearscreen.ClearScreen();

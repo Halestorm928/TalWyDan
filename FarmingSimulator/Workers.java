@@ -64,6 +64,10 @@ public class Workers //extends FarmingSimulatorRunner
     {
         return this.occupation;
     }
+    public void setOcc(Occupation occ)
+    {
+        this.occupation = occ;
+    }
     public String getName()
     {
         return name;

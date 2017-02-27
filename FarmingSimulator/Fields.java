@@ -3,26 +3,21 @@ public class Fields extends FarmingSimulatorRunner
 {
     private int numworkers;
     private int cropamount;
-    ArrayList<Workers> workers;
-    ArrayList<Workers> fworkers = new ArrayList<Workers>();
+    //ArrayList<Workers> workers = new ArrayList<Workers>();
     private int count;
     private int option;
     private int number;
     private String response = "";
     
-    public Fields(ArrayList<Workers> w)
+    public Fields()
     {
         numworkers = 0;
         cropamount = 0;
-        workers = w;
     }
-    public void setWorkers(ArrayList<Workers> w)
-    {
-        workers = w;
-    }
+    
     public ArrayList<Workers> getWorkers()
     {
-        return workers;
+        return super.workers;
     }
     
     public void optionSelect()
@@ -38,24 +33,24 @@ public class Fields extends FarmingSimulatorRunner
                 System.out.println("Here are all of your workers...." + "\n" + super.printWorkers() + "\n\n Which would you like to add to the fields?");
                 response = scanner.next();
                 
-                for(int i=0; i<workers.size(); i++)
+                for(int i=0; i<super.workers.size(); i++)
                 {
-                    if(workers.get(i).occupation != Occupation.FIELDWORKER)
-                        if(workers.get(i).name == response)
-                            {workers.get(i).occupation = Occupation.FIELDWORKER;}
-                        else{}
-                    else{System.out.println("\nWorker is Already a field worker");}
+                        if(super.workers.get(i).name == response)
+                            {
+                                System.out.println("\nOccupation Switched\n");
+                                super.workers.get(i).setOcc(Occupation.FIELDWORKER);
+                            }
                 }
             break;
             case 2:
                 clearscreen.ClearScreen();
                 System.out.println("Here are your field workers..." + "\n" + super.printWorkers(Occupation.FIELDWORKER)+ "\n\nWhich would you like to remove from the fields?");
                 String nameoption = scanner.next();
-                for(int i=0; i<workers.size(); i++)
+                for(int i=0; i<super.workers.size(); i++)
                 {
-                    if(workers.get(i).name.equals(nameoption))
+                    if(super.workers.get(i).name.equals(nameoption))
                     {   
-                        workers.get(i).occupation = Occupation.NOTWORKING; 
+                        super.workers.get(i).occupation = Occupation.NOTWORKING; 
                         System.out.println("Worker Removed from House"); 
                         number++;
                         clearscreen.ClearScreen();

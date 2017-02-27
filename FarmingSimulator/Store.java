@@ -2,9 +2,8 @@ import java.util.ArrayList;
 public class Store extends FarmingSimulatorRunner
 {
     ArrayList<Workers> workers;
-    public Store(ArrayList<Workers> w)
+    public Store()
     {        
-        workers = w;
     }
     
     public void setWorkers(ArrayList<Workers> w)

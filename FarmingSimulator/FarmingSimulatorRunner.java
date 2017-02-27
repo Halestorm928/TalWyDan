@@ -16,7 +16,7 @@ public class FarmingSimulatorRunner
     static private String name;
     
     static Scanner scanner = new Scanner(System.in);
-    static ArrayList<Workers> workers;
+    static protected ArrayList<Workers> workers;
     static House house;
     static Fields field;
     static Store store;
@@ -42,15 +42,16 @@ public class FarmingSimulatorRunner
         
         
         workers = new ArrayList<Workers>();
-        house = new House(workers);
-        field = new Fields(workers);
-        store = new Store(workers);
+        house = new House();
+        field = new Fields();
+        store = new Store();
         
         addWorker(name, 100, 5, 1);       
         
+        clearscreen.ClearScreen();
+        
         while(isGameRunning)
         {
-            clearscreen.ClearScreen();
             teleport();
         }
     }

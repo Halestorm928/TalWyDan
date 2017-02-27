@@ -8,6 +8,7 @@ public class Fields extends FarmingSimulatorRunner
     private int count;
     private int option;
     private int number;
+    private String response = "";
     
     public Fields(ArrayList<Workers> w)
     {
@@ -26,13 +27,28 @@ public class Fields extends FarmingSimulatorRunner
     
     public void optionSelect()
     {
+       clearscreen.ClearScreen();
        number = 0;
-       System.out.println("What would you like to do? Add Workers?(1)  Remove Workers(2) PrintWorkers (3) Print HouseWorkers(4)");
+       System.out.println("FIELDS:\n\nWhat would you like to do? Add Workers?(1)  Remove Workers(2) PrintWorkers (3) Print Field Workers(4)");
        option = scanner.nextInt();
         switch(option)
         {
-            case 1: break;
+            case 1: 
+                clearscreen.ClearScreen();
+                System.out.println("Here are all of your workers...." + "\n" + super.printWorkers() + "\n\n Which would you like to add to the fields?");
+                response = scanner.next();
+                
+                for(int i=0; i<workers.size(); i++)
+                {
+                    if(workers.get(i).occupation != Occupation.FIELDWORKER)
+                        if(workers.get(i).name == response)
+                            {workers.get(i).occupation = Occupation.FIELDWORKER;}
+                        else{}
+                    else{System.out.println("\nWorker is Already a field worker");}
+                }
+            break;
             case 2:
+                clearscreen.ClearScreen();
                 System.out.println("Here are your field workers..." + "\n" + super.printWorkers(Occupation.FIELDWORKER)+ "\n\nWhich would you like to remove from the fields?");
                 String nameoption = scanner.next();
                 for(int i=0; i<workers.size(); i++)
@@ -53,8 +69,8 @@ public class Fields extends FarmingSimulatorRunner
                     }
                 }
                 break;
-            case 3: System.out.println(super.printWorkers()); break;
-            case 4: System.out.println(super.printWorkers(Occupation.FIELDWORKER)); break;
+            case 3: clearscreen.ClearScreen(); System.out.println(super.printWorkers()); break;
+            case 4: clearscreen.ClearScreen(); System.out.println(super.printWorkers(Occupation.FIELDWORKER)); break;
             default: optionSelect(); break;
        }
    }

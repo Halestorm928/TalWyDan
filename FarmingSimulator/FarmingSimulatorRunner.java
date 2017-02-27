@@ -50,6 +50,7 @@ public class FarmingSimulatorRunner
         
         while(isGameRunning)
         {
+            clearscreen.ClearScreen();
             teleport();
         }
     }
@@ -98,7 +99,11 @@ public class FarmingSimulatorRunner
             if(d.getOcc() == worker)
                 all+= "\n"+d.name;
           }
-          
+        if(all.equals(""))
+        {
+            clearscreen.ClearScreen();
+            return "No workers found.";
+        }
         return all;
         }
  }
